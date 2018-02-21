@@ -18,6 +18,4 @@ Minimale Twitter Opinion Mining Web Application
 R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-language Resource for Sentiment Analysis.
 In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), 2010
 
-![Index](https://github.com/matejgrahovac/twitterOpi/blob/master/screenshots/index.jpg?raw=true "Index")
-
 ![Ergebnis](https://github.com/matejgrahovac/twitterOpi/blob/master/screenshots/papaponti.jpg?raw=true "Ergebnis")
