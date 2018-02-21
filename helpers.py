@@ -8,7 +8,8 @@ import socket
 from twython import Twython
 from twython import TwythonAuthError, TwythonError, TwythonRateLimitError
 
-def chart(positive, negative, neutral):
+
+def chart(positive, negative):
     """Return a pie chart for specified sentiments as HTML."""
 
     # offline plot
@@ -17,17 +18,16 @@ def chart(positive, negative, neutral):
     figure = {
         "data": [
             {
-                "labels": ["positiv", "negativ", "neutral"],
+                "labels": ["positiv", "negativ"],
                 "hoverinfo": "none",
                 "marker": {
                     "colors": [
-                        "rgb(0,255,00)",
-                        "rgb(255,0,0)",
-                        "rgb(255,255,0)"
+                        "green",
+                        "red",
                     ]
                 },
                 "type": "pie",
-                "values": [positive, negative, neutral]
+                "values": [positive, negative]
             }
         ],
         "layout": {
@@ -58,8 +58,12 @@ def get_user_timeline(screen_name, count):
         user = twitter.lookup_user(screen_name=screen_name.lstrip("@"))
         if user[0]["protected"]:
             return None
-        tweets = twitter.get_user_timeline(screen_name=screen_name, count=count)
-        return [html.unescape(tweet["text"].replace("\n", " ")) for tweet in tweets]
+        tweets = twitter.get_user_timeline(screen_name=screen_name, include_rts=True, count=count, tweet_mode='extended')
+        tweetsList = []
+        for tweet in tweets:
+            tweetText = html.unescape(tweet["full_text"].replace("\n", " "))
+            tweetsList.append({'tweet': tweetText, 'time': tweet['created_at'], 'score': 0.0})
+        return tweetsList
     except TwythonAuthError:
         raise RuntimeError("invalid API_KEY and/or API_SECRET") from None
     except TwythonRateLimitError:
