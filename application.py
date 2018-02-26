@@ -43,15 +43,16 @@ def search():
     # poENG = os.path.join(sys.path[0], "positive-words.txt")
     # neENG = os.path.join(sys.path[0], "negative-words.txt")
 
-    positives = "static/SentiWS_v18c_Positive.txt"
-    negatives = "static/SentiWS_v18c_Negative.txt"
+    # positives = "static/SentiWS_v18c_Positive.txt"
+    # negatives = "static/SentiWS_v18c_Negative.txt"
     poENG = "static/positive-words.txt"
     neENG = "static/negative-words.txt"
 
 
 
     # instantiate analyzer
-    analyzer = Analyzer(positives, negatives, poENG, neENG)
+    # analyzer = Analyzer(positives, negatives, poENG, neENG)
+    analyzer = Analyzer(poENG, neENG)
 
     # variables for counting
     positive = 0

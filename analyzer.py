@@ -63,12 +63,16 @@ def cformatENG(wordlist, pORn):
 class Analyzer():
     """Implements sentiment analysis."""
 
-    def __init__(self, positives, negatives, poENG, neENG):
+    # def __init__(self, positives, negatives, poENG, neENG):
+    def __init__(self, poENG, neENG):
         """Initialize Analyzer."""
 
 
-        self.posi = {**cformat(positives), **cformatENG(poENG, True)}
-        self.nega = {**cformat(negatives), **cformatENG(neENG, False)}
+        # self.posi = {**cformat(positives), **cformatENG(poENG, True)}
+        # self.nega = {**cformat(negatives), **cformatENG(neENG, False)}
+
+        self.posi = cformatENG(poENG, True)
+        self.nega = cformatENG(neENG, False)
 
 
     def analyze(self, text):
