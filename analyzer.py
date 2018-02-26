@@ -1,23 +1,13 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
-from flask import url_for
-from importlib import reload
 
 import nltk
-# import sys
-
-# reload(sys)
-# sys.setdefaultencoding('utf8')
-
-# print(sys.version_info)
 
 
 def cformat(wordlist):
 
     newformat = {}
     with open(wordlist, 'r', encoding='utf-8') as words:
-    # with open(wordlist) as words:
         for line in words:
             if line[0].isalnum():
                 line = line.rstrip("\n").lower()
@@ -43,7 +33,6 @@ def cformatENG(wordlist, pORn):
 
     newformat = {}
     with open(wordlist, 'r', encoding='utf-8') as words:
-    # with open(wordlist) as words:
         for line in words:
             if line[0].isalnum():
                 thisword = line.rstrip("\n").lower()
@@ -63,17 +52,11 @@ def cformatENG(wordlist, pORn):
 class Analyzer():
     """Implements sentiment analysis."""
 
-    # def __init__(self, positives, negatives, poENG, neENG):
-    def __init__(self, poENG, neENG):
+    def __init__(self, positives, negatives, poENG, neENG):
         """Initialize Analyzer."""
 
-
-        # self.posi = {**cformat(positives), **cformatENG(poENG, True)}
-        # self.nega = {**cformat(negatives), **cformatENG(neENG, False)}
-
-        self.posi = cformatENG(poENG, True)
-        self.nega = cformatENG(neENG, False)
-
+        self.posi = {**cformat(positives), **cformatENG(poENG, True)}
+        self.nega = {**cformat(negatives), **cformatENG(neENG, False)}
 
     def analyze(self, text):
         """Analyze text for sentiment, returning its score."""
