@@ -5,6 +5,8 @@ __pycache__/
 smile
 tweets
 
+flask-aws/
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

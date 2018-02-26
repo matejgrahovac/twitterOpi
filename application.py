@@ -7,6 +7,9 @@ import os
 import sys
 from analyzer import Analyzer
 
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 application = Flask(__name__)
 
 @application.template_filter()
