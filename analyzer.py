@@ -5,18 +5,18 @@ from flask import url_for
 from importlib import reload
 
 import nltk
-import sys
+# import sys
 
 # reload(sys)
 # sys.setdefaultencoding('utf8')
 
-print(sys.version_info)
+# print(sys.version_info)
 
 
 def cformat(wordlist):
 
     newformat = {}
-    with open(wordlist, 'r') as words:
+    with open(wordlist, 'r', encoding='utf-8') as words:
     # with open(wordlist) as words:
         for line in words:
             if line[0].isalnum():
@@ -42,7 +42,7 @@ def cformat(wordlist):
 def cformatENG(wordlist, pORn):
 
     newformat = {}
-    with open(wordlist, 'r') as words:
+    with open(wordlist, 'r', encoding='utf-8') as words:
     # with open(wordlist) as words:
         for line in words:
             if line[0].isalnum():
