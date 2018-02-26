@@ -7,9 +7,10 @@ from importlib import reload
 import nltk
 import sys
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+# reload(sys)
+# sys.setdefaultencoding('utf8')
 
+print(sys.version_info)
 
 
 def cformat(wordlist):
