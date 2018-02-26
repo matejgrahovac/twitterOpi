@@ -2,8 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from flask import url_for
+from importlib import reload
 
 import nltk
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 
 
 def cformat(wordlist):
