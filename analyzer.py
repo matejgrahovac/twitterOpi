@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import nltk
 
@@ -9,7 +10,6 @@ def cformat(wordlist):
 
     with open(wordlist) as words:
         for line in words:
-            line = line.encode('utf-8')
             if line[0].isalnum():
                 line = line.rstrip("\n").lower()
                 thisword = line.split()[0].split('|')[0]
