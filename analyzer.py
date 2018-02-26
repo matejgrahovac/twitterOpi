@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from flask import url_for
+
 import nltk
 
 
 def cformat(wordlist):
 
     newformat = {}
-
-    with open(wordlist) as words:
+    with open(wordlist, 'r') as words:
+    # with open(wordlist) as words:
         for line in words:
             if line[0].isalnum():
                 line = line.rstrip("\n").lower()
@@ -33,8 +35,8 @@ def cformat(wordlist):
 def cformatENG(wordlist, pORn):
 
     newformat = {}
-
-    with open(wordlist) as words:
+    with open(wordlist, 'r') as words:
+    # with open(wordlist) as words:
         for line in words:
             if line[0].isalnum():
                 thisword = line.rstrip("\n").lower()

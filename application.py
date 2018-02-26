@@ -4,8 +4,8 @@
 from flask import Flask, redirect, render_template, request, url_for
 
 import helpers
-import os
-import sys
+# import os
+# import sys
 from analyzer import Analyzer
 
 
@@ -38,10 +38,17 @@ def search():
     tweets = helpers.get_user_timeline(screen_name, 200)
 
     # absolute paths to lists
-    positives = os.path.join(sys.path[0], "SentiWS_v1.8c_Positive.txt")
-    negatives = os.path.join(sys.path[0], "SentiWS_v1.8c_Negative.txt")
-    poENG = os.path.join(sys.path[0], "positive-words.txt")
-    neENG = os.path.join(sys.path[0], "negative-words.txt")
+    # positives = os.path.join(sys.path[0], "SentiWS_v1.8c_Positive.txt")
+    # negatives = os.path.join(sys.path[0], "SentiWS_v1.8c_Negative.txt")
+    # poENG = os.path.join(sys.path[0], "positive-words.txt")
+    # neENG = os.path.join(sys.path[0], "negative-words.txt")
+
+    positives = "static/SentiWS_v18c_Positive.txt"
+    negatives = "static/SentiWS_v18c_Negative.txt"
+    poENG = "static/positive-words.txt"
+    neENG = "static/negative-words.txt"
+
+
 
     # instantiate analyzer
     analyzer = Analyzer(positives, negatives, poENG, neENG)
