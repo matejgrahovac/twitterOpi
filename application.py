@@ -54,11 +54,11 @@ def search():
             negative -= tweet['score']
 
     # generate chart
-    # chart = helpers.chart(positive, negative)
-    chart = 'There is no Chart'
+    chart = helpers.chart(positive, negative)
 
     # render results
     return render_template("search.html", chart=chart, screen_name=screen_name, tweets=tweets)
+
 
 # run the app.
 if __name__ == "__main__":
