@@ -7,24 +7,22 @@ import os
 import sys
 from analyzer import Analyzer
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-
-@app.template_filter()
+@application.template_filter()
 def number(value):
     return "{:.4f}".format(value)
 
-@app.template_filter()
+@application.template_filter()
 def time(value):
     value = value[-4:] + ' ' + value[:19]
     return value
 
-
-@app.route("/")
+@application.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/search")
+@application.route("/search")
 def search():
 
     # validate screen_name
@@ -59,12 +57,15 @@ def search():
             negative -= tweet['score']
 
     # generate chart
-    chart = helpers.chart(positive, negative)
+    # chart = helpers.chart(positive, negative)
+    chart = 'There is no Chart'
 
     # render results
     return render_template("search.html", chart=chart, screen_name=screen_name, tweets=tweets)
 
-
-
-# R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-language Resource for Sentiment Analysis.
-# In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), pp. 1168-1171, 2010
+# run the app.
+if __name__ == "__main__":
+    # Setting debug to True enables debug output. This line should be
+    # removed before deploying a production app.
+    application.debug = True
+    application.run(host='0.0.0.0')
