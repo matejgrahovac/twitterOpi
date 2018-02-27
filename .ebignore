@@ -1,6 +1,5 @@
 .git/
 __pycache__/
-config_set.py
 flask-aws/
 
 # Elastic Beanstalk Files
