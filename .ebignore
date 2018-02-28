@@ -1,6 +1,9 @@
 .git/
 __pycache__/
 flask-aws/
+README.md
+screenshots/
+config.py/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
