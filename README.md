@@ -1,6 +1,6 @@
 # twitterOpi
 
-Minimale Twitter Opinion Mining Web Application [Live Demo](https://twitter-opi.herokuapp.com/)
+Minimale Twitter Opinion Mining Web Application 
 
 
 [flask](http://flask.pocoo.org/)
